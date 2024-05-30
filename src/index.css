@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Amazon';
+    src: url('./assets/fonts/Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Amazon';
+    src: url('./assets/fonts/medium.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Amazon';
+    src: url('./assets/fonts/Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Amazon';
+    src: url('./assets/fonts/Bold-Italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Amazon';
+    src: url('./assets/fonts/thin.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Amazon', sans-serif;
+    overflow-x: hidden;
+}
