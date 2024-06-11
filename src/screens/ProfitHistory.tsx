@@ -2,10 +2,16 @@ import { useEffect, useState } from 'react'
 import ProfitHistoryTable from '../components/ProfitHistoryTable'
 import { api } from '../api/api'
 
+interface Store {
+    _id: string
+    name: string
+}
+
 interface ProfitHistory {
     _id: string
     amount: number
     createdAt: string
+    store: Store
 }
 
 const ProfitHistory = () => {

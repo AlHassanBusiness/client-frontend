@@ -1,13 +1,29 @@
 import React from 'react'
 
+interface Store {
+    _id: string
+    name: string
+}
+
 interface ProfitHistory {
     _id: string
     amount: number
     createdAt: string
+    store: Store
 }
 
 interface ProfitHistoryTableProps {
     profitHistory: ProfitHistory[]
+}
+
+const handleDate = (date: string) => {
+    const formattedDate = new Date(date).toLocaleDateString('en-US', {
+        month: 'long', // Full month name
+        day: '2-digit', // Two-digit day
+        year: 'numeric', // Full year
+    })
+
+    return formattedDate
 }
 
 const ProfitHistoryTable: React.FC<ProfitHistoryTableProps> = ({
@@ -25,7 +41,7 @@ const ProfitHistoryTable: React.FC<ProfitHistoryTableProps> = ({
                             Profit Amount
                         </th>
                         <th className='px-4 py-2 border border-gray-300'>
-                            Active Investment
+                            Store
                         </th>
                     </tr>
                 </thead>
@@ -33,15 +49,13 @@ const ProfitHistoryTable: React.FC<ProfitHistoryTableProps> = ({
                     {profitHistory.map((profit: ProfitHistory) => (
                         <tr key={profit._id}>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
-                                {new Date(
-                                    profit.createdAt,
-                                ).toLocaleDateString()}
+                                {handleDate(profit.createdAt)}
                             </td>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
                                 ${profit.amount}
                             </td>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
-                                $16,101.18
+                                {profit.store.name}
                             </td>
                         </tr>
                     ))}

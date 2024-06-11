@@ -16,6 +16,16 @@ interface InvestmentHistoryProps {
     investmentHistory: InvestmentHistory[]
 }
 
+const handleDate = (date: string) => {
+    const formattedDate = new Date(date).toLocaleDateString('en-US', {
+        month: 'long', // Full month name
+        day: '2-digit', // Two-digit day
+        year: 'numeric', // Full year
+    })
+
+    return formattedDate
+}
+
 const InvestmentHistoryTable: React.FC<InvestmentHistoryProps> = ({
     investmentHistory,
 }) => {
@@ -39,9 +49,7 @@ const InvestmentHistoryTable: React.FC<InvestmentHistoryProps> = ({
                     {investmentHistory.map((investment: InvestmentHistory) => (
                         <tr key={investment._id}>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
-                                {new Date(
-                                    investment.createdAt,
-                                ).toLocaleDateString()}
+                                {handleDate(investment.createdAt)}
                             </td>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
                                 ${investment.amount}

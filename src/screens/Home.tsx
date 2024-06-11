@@ -4,10 +4,16 @@ import ProfitHistoryTable from '../components/ProfitHistoryTable'
 import { api } from '../api/api'
 import { useEffect, useState } from 'react'
 
+interface Store {
+    _id: string
+    name: string
+}
+
 interface ProfitHistory {
     _id: string
     amount: number
     createdAt: string
+    store: Store
 }
 
 const Home = () => {
@@ -24,6 +30,7 @@ const Home = () => {
                     setProfit(response.data.profit)
                     setProfitHistory(response.data.profitHistory)
                     const data = response.data.data
+                    console.log(data)
                     setInvestment(data.amount)
                     setStore(data.store.name)
                 }
