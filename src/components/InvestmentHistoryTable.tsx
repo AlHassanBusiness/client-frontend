@@ -10,6 +10,7 @@ interface InvestmentHistory {
     amount: number
     store: Store
     createdAt: string
+    cumulativeAmount: string
 }
 
 interface InvestmentHistoryProps {
@@ -29,6 +30,7 @@ const handleDate = (date: string) => {
 const InvestmentHistoryTable: React.FC<InvestmentHistoryProps> = ({
     investmentHistory,
 }) => {
+    console.log(investmentHistory)
     return (
         <div className='border border-gray-300 overflow-x-auto mb-5'>
             <table className='table-auto w-full text-left border-collapse'>
@@ -55,7 +57,7 @@ const InvestmentHistoryTable: React.FC<InvestmentHistoryProps> = ({
                                 ${investment.amount}
                             </td>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
-                                $16,101.18
+                                ${investment.cumulativeAmount}
                             </td>
                         </tr>
                     ))}

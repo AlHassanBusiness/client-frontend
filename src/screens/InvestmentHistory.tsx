@@ -12,6 +12,7 @@ interface InvestmentHistory {
     amount: number
     store: Store
     createdAt: string
+    cumulativeAmount: string
 }
 
 const InvestmentHistory = () => {
@@ -40,7 +41,13 @@ const InvestmentHistory = () => {
             <h3 className='font-semibold md:text-xl text-lg mb-4'>
                 Investment History
             </h3>
-            <InvestmentHistoryTable investmentHistory={investmentHistory} />
+            {!investmentHistory.length ? (
+                <p className='text-sm pl-5 font-semibold'>
+                    No investment history
+                </p>
+            ) : (
+                <InvestmentHistoryTable investmentHistory={investmentHistory} />
+            )}
         </section>
     )
 }

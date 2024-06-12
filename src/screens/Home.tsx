@@ -17,8 +17,9 @@ interface ProfitHistory {
 }
 
 const Home = () => {
-    const [store, setStore] = useState<string>('')
-    const [investment, setInvestment] = useState<number>(0)
+    const [firstStoreName, setFirstStoreName] =
+        useState<string>('No Store Found')
+    const [totalInvestment, setTotalInvestment] = useState<number>(0)
     const [profit, setProfit] = useState<number>(0)
     const [profitHistory, setProfitHistory] = useState<ProfitHistory[]>([])
 
@@ -29,10 +30,8 @@ const Home = () => {
                 if (response.status === 200) {
                     setProfit(response.data.profit)
                     setProfitHistory(response.data.profitHistory)
-                    const data = response.data.data
-                    console.log(data)
-                    setInvestment(data.amount)
-                    setStore(data.store.name)
+                    setTotalInvestment(response.data.totalInvestment)
+                    setFirstStoreName(response.data.firstStoreName)
                 }
             } catch (error) {
                 console.log(error)
@@ -68,7 +67,7 @@ const Home = () => {
                         Active Investment
                     </h4>
                     <span className='md:text-2xl text-xl text-secondary font-extrabold'>
-                        {investment ? `$${investment}` : '...'}
+                        {totalInvestment ? `$${totalInvestment}` : '...'}
                     </span>
                 </div>
                 <div className='bg-white border border-gray-300 p-4 flex flex-col gap-y-3 md:min-w-[250px] w-[170px]'>
@@ -82,7 +81,7 @@ const Home = () => {
                 <div className='bg-white border border-gray-300 p-4 flex flex-col gap-y-3 md:min-w-[250px] w-[170px]'>
                     <h4 className='md:text-xl text-[15px]'>Store</h4>
                     <span className='md:text-2xl text-xl text-secondary font-extrabold'>
-                        {store ? store : '...'}
+                        {firstStoreName}
                     </span>
                 </div>
                 <Link

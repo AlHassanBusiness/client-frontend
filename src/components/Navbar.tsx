@@ -4,7 +4,8 @@ import { IoMdSearch as SearchIcon } from 'react-icons/io'
 import { MdOutlineMail as MailIcon } from 'react-icons/md'
 import { IoChevronDown as ArrowDown } from 'react-icons/io5'
 import { RxAvatar as Avatar } from 'react-icons/rx'
-
+import logo from '../assets/logo.png'
+import ausflag from '../assets/ausflag.png'
 type SetOpenType = React.Dispatch<React.SetStateAction<boolean>>
 
 interface NavBarProps {
@@ -16,7 +17,7 @@ const Navbar: React.FC<NavBarProps> = ({ setOpen, open }) => {
     return (
         <div className='min-h-20 bg-secondary text-white p-2 flex justify-between items-center'>
             <Link to={'/'} className='text-3xl font-semibold'>
-                Logo
+                <img src={logo} alt='Logo' className='w-24' />
             </Link>
             <div className='flex-row w-[80%] mx-auto  ml-28 gap-4 hidden lg:flex'>
                 <div className='relative w-[80%]'>
@@ -27,11 +28,16 @@ const Navbar: React.FC<NavBarProps> = ({ setOpen, open }) => {
                         placeholder='Search'
                         className='p-2 bg-input w-full rounded-sm text-white placeholder:text-white focus:ring-0 focus:outline-none'
                     />
-                    <div className='absolute top-0 right-0 bg-tertiary py-2.5 px-3 cursor-pointer'>
+                    <div className='absolute top-0 right-0 bg-primary py-2.5 px-3 cursor-pointer'>
                         <SearchIcon className='text-xl' />
                     </div>
                 </div>
                 <div className='flex flex-row justify-center items-center gap-4'>
+                    <img
+                        src={ausflag}
+                        alt='Aus Flag'
+                        className='w-7 mr-10 cursor-pointer'
+                    />
                     <MailIcon className='text-lg cursor-pointer' />
                     <span className='flex flex-row  justify-center items-center cursor-pointer'>
                         <span>EN</span>
