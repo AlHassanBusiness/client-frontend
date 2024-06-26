@@ -62,6 +62,16 @@ const SideBar: React.FC<SideBarProps> = ({ open }) => {
                 >
                     Investment History
                 </NavLink>
+                <NavLink
+                    to='/profile'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'active font-bold text-lg  py-2 pl-3'
+                            : 'font-bold text-lg  py-2  pl-3'
+                    }
+                >
+                    Profile
+                </NavLink>
                 <button
                     onClick={handleLogout}
                     className='font-bold bg-red-400 text-lg  py-2 hover:bg-red-500 mt-10'

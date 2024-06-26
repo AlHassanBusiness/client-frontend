@@ -68,6 +68,7 @@ const Home = () => {
                     </h4>
                     <span className='md:text-2xl text-xl text-secondary font-extrabold'>
                         {totalInvestment ? `$${totalInvestment}` : '...'}
+                        {/* $535341 */}
                     </span>
                 </div>
                 <div className='bg-white border border-gray-300 p-4 flex flex-col gap-y-3 md:min-w-[250px] w-[170px]'>
@@ -75,13 +76,15 @@ const Home = () => {
                         Profit of {getCurrentMonthName()}
                     </h4>
                     <span className='md:text-2xl text-xl text-secondary font-extrabold'>
-                        {profit ? `$${profit}` : '....'}
+                        {profit ? `${profit}%` : '....'}
+                        {/* 23% */}
                     </span>
                 </div>
                 <div className='bg-white border border-gray-300 p-4 flex flex-col gap-y-3 md:min-w-[250px] w-[170px]'>
                     <h4 className='md:text-xl text-[15px]'>Store</h4>
                     <span className='md:text-2xl text-xl text-secondary font-extrabold'>
-                        {firstStoreName}
+                        {firstStoreName ? firstStoreName : '....'}
+                        {/* Electronics Store */}
                     </span>
                 </div>
                 <Link

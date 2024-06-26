@@ -30,7 +30,6 @@ const handleDate = (date: string) => {
 const InvestmentHistoryTable: React.FC<InvestmentHistoryProps> = ({
     investmentHistory,
 }) => {
-    console.log(investmentHistory)
     return (
         <div className='border border-gray-300 overflow-x-auto mb-5'>
             <table className='table-auto w-full text-left border-collapse'>

@@ -5,6 +5,7 @@ import Home from './screens/Home'
 import Layout from './components/Layout'
 import ProfitHistory from './screens/ProfitHistory'
 import InvestmentHistory from './screens/InvestmentHistory'
+import Profile from './screens/Profile'
 import { useAuth } from './context/AuthContext'
 import { Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
@@ -45,6 +46,18 @@ const App = () => {
                         loggedIn ? (
                             <Layout>
                                 <InvestmentHistory />
+                            </Layout>
+                        ) : (
+                            <Navigate to={'/signin'} />
+                        )
+                    }
+                />
+                <Route
+                    path='/profile'
+                    element={
+                        loggedIn ? (
+                            <Layout>
+                                <Profile />
                             </Layout>
                         ) : (
                             <Navigate to={'/signin'} />

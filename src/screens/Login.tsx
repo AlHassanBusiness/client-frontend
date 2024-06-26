@@ -2,8 +2,9 @@ import toast from 'react-hot-toast'
 import { api } from '../api/api'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate, Link } from 'react-router-dom'
+import logo from '../assets/logo-dark.png'
+import { FaChevronRight } from 'react-icons/fa'
 const Login = () => {
     const { loggedIn, setLoggedIn, setUser } = useAuth()
     const [email, setEmail] = useState<string>('')
@@ -42,11 +43,11 @@ const Login = () => {
     }, [loggedIn])
 
     return (
-        <div className='h-screen overflow-hidden flex justify-start items-center  flex-col mt-10 gap-y-10'>
-            <h4 className='text-3xl font-semibold'>LOGO HERE</h4>
-            <div className='lg:min-w-[350px] min-w-[320px] px-7 py-5 border border-gray-200 rounded-sm flex flex-col'>
-                <h4 className='md:text-3xl text-2xl font-semibold'>Sign in</h4>
-                <div className='flex flex-col gap-y-2 mt-7 mb-4'>
+        <div className='h-screen overflow-hidden flex justify-start items-center  flex-col gap-y-2 '>
+            <img src={logo} alt='Logo' className='mt-2' />
+            <div className='lg:w-[350px] min-w-[320px] px-7 py-5 border border-gray-200 rounded-lg flex flex-col shadow-sm'>
+                <h4 className='md:text-3xl text-2xl '>Sign in</h4>
+                <div className='flex flex-col gap-y-2 mt-7 mb-2'>
                     <label htmlFor='email' className='text-sm'>
                         Email
                     </label>
@@ -76,10 +77,30 @@ const Login = () => {
                 </div>
                 <button
                     onClick={handleLogin}
-                    className='bg-primary text-gray-900 p-2 rounded-sm shadow-sm'
+                    className='bg-primarylight text-gray-900 p-2 rounded-md shadow-sm'
                 >
                     Sign in
                 </button>
+                <span className='text-xs mt-4'>
+                    By continuing, you agree to Amazon's{' '}
+                    <span className='text-blue-700 hover:underline cursor-pointer hover:text-primary'>
+                        {' '}
+                        Conditions of Use
+                    </span>{' '}
+                    and{' '}
+                    <span className='text-blue-700 hover:underline cursor-pointer hover:text-primary'>
+                        {' '}
+                        Privacy Notice
+                    </span>
+                    .
+                </span>
+                <Link to={'/'} className=' mt-4  flex items-center'>
+                    <FaChevronRight size={9} className='text-gray-700' />
+                    <span className='text-blue-700 text-sm hover:underline cursor-pointer hover:text-primary'>
+                        {' '}
+                        Need Help
+                    </span>
+                </Link>
             </div>
         </div>
     )
