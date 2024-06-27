@@ -75,7 +75,7 @@ const Home = () => {
                         Profit of {getCurrentMonthName()}
                     </h4>
                     <span className='md:text-2xl text-xl text-secondary font-extrabold'>
-                        {profit ? `${profit}` : '....'}
+                        {profit ? `$ ${profit}` : '....'}
                     </span>
                 </div>
                 <div className='bg-white border border-gray-300 p-4 flex flex-col gap-y-3 md:min-w-[250px] w-[170px]'>
