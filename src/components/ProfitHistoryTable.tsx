@@ -52,7 +52,7 @@ const ProfitHistoryTable: React.FC<ProfitHistoryTableProps> = ({
                                 {handleDate(profit.createdAt)}
                             </td>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
-                                {profit.amount}%
+                                ${profit.amount}
                             </td>
                             <td className='px-4 py-2 border border-gray-300 text-left'>
                                 {profit.store.name}
