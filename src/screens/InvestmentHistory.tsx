@@ -1,6 +1,7 @@
 import InvestmentHistoryTable from '../components/InvestmentHistoryTable'
 import { useState, useEffect } from 'react'
 import { api } from '../api/api'
+import Loader from '../components/Loader'
 
 interface Store {
     _id: string
@@ -62,7 +63,7 @@ const InvestmentHistory = () => {
             <h3 className='font-semibold md:text-xl text-lg mb-4'>
                 Investment History
             </h3>
-            {loading && <div className='text-center mt-4'>Loading...</div>}
+            {loading && <Loader height='50' width='50' />}
             {!loading && !investmentHistory.length ? (
                 <p className='text-sm underline font-semibold'>
                     No investment history

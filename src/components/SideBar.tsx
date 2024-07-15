@@ -53,6 +53,16 @@ const SideBar: React.FC<SideBarProps> = ({ open }) => {
                     Profit History
                 </NavLink>
                 <NavLink
+                    to='/order-history'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'active font-bold text-lg  py-2 pl-3'
+                            : 'font-bold text-lg  py-2  pl-3'
+                    }
+                >
+                    Order History
+                </NavLink>
+                <NavLink
                     to='/investment-history'
                     className={({ isActive }) =>
                         isActive

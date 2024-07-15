@@ -17,7 +17,7 @@ const Navbar: React.FC<NavBarProps> = ({ setOpen, open }) => {
     return (
         <div className='min-h-20 bg-secondary text-white p-2 flex justify-between items-center'>
             <Link to={'/'} className='text-3xl font-semibold'>
-                <img src={logo} alt='Logo' className='w-24' />
+                <img src={logo} alt='Logo' className='w-28' />
             </Link>
             <div className='flex-row w-[80%] mx-auto  ml-28 gap-4 hidden lg:flex'>
                 <div className='relative w-[80%]'>
@@ -47,7 +47,7 @@ const Navbar: React.FC<NavBarProps> = ({ setOpen, open }) => {
                 </div>
             </div>
             <MenuIcon
-                className='text-2xl cursor-pointer'
+                className='text-4xl cursor-pointer'
                 onClick={() => setOpen(!open)}
             />
         </div>

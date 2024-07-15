@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import ProfitHistoryTable from '../components/ProfitHistoryTable'
 import { api } from '../api/api'
+import Loader from '../components/Loader'
 
 interface Store {
     _id: string
@@ -59,7 +60,7 @@ const ProfitHistory = () => {
             <h3 className='font-semibold md:text-xl text-lg mb-4'>
                 Profit History
             </h3>
-            {loading && <div className='text-center mt-4'>Loading...</div>}
+            {loading && <Loader height='50' width='50'  />}
             {!loading && profitHistory.length > 0 ? (
                 <>
                     <ProfitHistoryTable profitHistory={profitHistory} />

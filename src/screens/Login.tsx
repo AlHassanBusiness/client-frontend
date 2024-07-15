@@ -3,16 +3,20 @@ import { api } from '../api/api'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
-import logo from '../assets/logo-dark.png'
+import logo from '../assets/login-logo.png'
 import { FaChevronRight } from 'react-icons/fa'
+import Loader from "../components/Loader"
+
 const Login = () => {
     const { loggedIn, setLoggedIn, setUser } = useAuth()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [loading,setLoading] = useState(false)
     const navigate = useNavigate()
 
     const handleLogin = async () => {
         try {
+            setLoading(true)
             if (email === '' || password === '') {
                 toast.error('All fields are required')
                 return
@@ -30,11 +34,12 @@ const Login = () => {
                 setLoggedIn(true)
                 setUser(response.data)
                 toast.success('Login successfull')
+                setLoading(false)
                 navigate('/')
             }
         } catch (error: object | any) {
-            console.log(error)
             toast.error(error.response.data.error)
+            setLoading(false)
         }
     }
 
@@ -43,8 +48,8 @@ const Login = () => {
     }, [loggedIn])
 
     return (
-        <div className='h-screen overflow-hidden flex justify-start items-center  flex-col gap-y-2 '>
-            <img src={logo} alt='Logo' className='mt-2' />
+        <div className='h-screen overflow-hidden flex justify-start items-center  flex-col gap-y-4 '>
+            <img src={logo} alt='Logo' className='mt-20 w-56' />
             <div className='lg:w-[350px] min-w-[320px] px-7 py-5 border border-gray-200 rounded-lg flex flex-col shadow-sm'>
                 <h4 className='md:text-3xl text-2xl '>Sign in</h4>
                 <div className='flex flex-col gap-y-2 mt-7 mb-2'>
@@ -77,9 +82,10 @@ const Login = () => {
                 </div>
                 <button
                     onClick={handleLogin}
+                    disabled={loading}
                     className='bg-primarylight text-gray-900 p-2 rounded-md shadow-sm'
                 >
-                    Sign in
+                    {loading ? <div className='flex justify-center items-center'><Loader height='20' width='20' /></div> : 'Sign in '}
                 </button>
                 <span className='text-xs mt-4'>
                     By continuing, you agree to Amazon's{' '}
