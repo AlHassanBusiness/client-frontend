@@ -61,7 +61,7 @@ const SalesHistoryTable: React.FC<salesHistoryProps> = ({
                                 #{i+1}
                             </td>
                             <td className='px-4 py-2  text-left'>
-                                <img src={`https://backend.amazoonaustralia.com/${sale.product.image}`} alt="Product Image" className='w-12 h-12 rounded-md' />
+                                <img src={sale.product.image} alt="Product Image" className='w-12 h-12 rounded-md' />
                             </td>
                             <td className='px-4 py-2  text-left'>
                                 {sale.product.name}
